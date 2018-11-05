@@ -1,6 +1,11 @@
-#include <stdio.h>
+/*
+	ALGORITMO DE ORDENAÇÃO BUBBLESORT
+*/
 
-void swap(int *a, int *b)
+#include <stdio.h>
+#include <time.h>
+
+void swapBuble(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
@@ -23,31 +28,23 @@ void bubbleSort(int array[], int n)
     // Navegando pelo array e conferindo qual é maior
     for (i = 0; i < n - 1; i++)
     {
-        printArray(array, n);
         for (j = 0; j < n - i - 1; j++)
         {
             if (array[j] > array[j + 1])
             {
-                swap(&array[j], &array[j + 1]);
+                swapBuble(&array[j], &array[j + 1]);
             }
         }
     }
 }
 
-int main()
+void rb(int array[], int tamanho)
 {
-    int tamanho;
-    printf("tamanho do array: ");
-    scanf("%d", &tamanho);
-    int array[tamanho];
-
-    printf("Digite os elementos do array separados por espaco: ");
-    for (int i = 0; i < tamanho; i++)
-    {
-        scanf("%d", &array[i]);
-    }
+    clock_t begin = clock();
+    double cpu_time_used;
+    
     bubbleSort(array, tamanho);
-    printf("Array ordenado: \n");
-    printArray(array, tamanho);
-    return 0;
+    clock_t end = clock();
+    double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
+    printf("Tempo de execução em segundos: %lf\n", time_spent);
 }

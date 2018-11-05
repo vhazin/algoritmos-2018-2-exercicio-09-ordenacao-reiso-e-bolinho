@@ -1,41 +1,38 @@
 /*
 	ALGORITMO DE ORDENAÇÃO MERGESORT
 */
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void mergeSort(int array[], int length);
 void merge(int left[], int right[], int array[], int sizeLeft, int sizeRight, int sizeArray);
-void printArray(int array[], int size);
+void printArrayMerge(int array[], int size);
 
-int main(void) {
+void rm(int array[], int size)
+{
+	clock_t begin = clock();
+	double cpu_time_used;
 
-	int size, count;
-	int *array;
-	printf("Digite quantos elementos tera o array: ");
-	scanf("%d", &size);  /* recebe o tamanho do array */
-	array = malloc(size * sizeof(int));  /* aloca memória para o tamanho */
-	/* rebebe os elementos do array */
-	printf("Digite os elementos do array separados por espaco: ");
-	for (count = 0; count < size; count++)
-		scanf("%d", &array[count]);
-	/* checa se o array tem menos de dois elementos, se tiver ja esta ordenado */
-	printf("\n");
-	if (size < 2) {
+	int count;
+	
+	if (size < 2)
+	{
 		printf("Array ja esta ordenado\n");
-		return 0;
 	}
 
 	mergeSort(array, size);
 	/* printa o array */
-	printf("Array ordenado: \n");
-	printArray(array, size);
-
-	return 0;
+	clock_t end = clock();
+	double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
+    printf("Tempo de execução em segundos: %lf\n", time_spent);
 }
 
-void mergeSort(int array[], int length) {
-	if (length < 2) {
+void mergeSort(int array[], int length)
+{
+	if (length < 2)
+	{
 		return;
 	}
 	int i;
@@ -54,41 +51,52 @@ void mergeSort(int array[], int length) {
 	merge(left, right, array, (mid), (length - mid), length);
 }
 
-void merge(int left[], int right[], int array[], int sizeLeft, int sizeRight, int sizeArray) {
+void merge(int left[], int right[], int array[], int sizeLeft, int sizeRight, int sizeArray)
+{
 	int indexLeft = 0;
 	int indexRight = 0;
 	int indexArray = 0;
 	/* ordena */
-	while (indexLeft < sizeLeft && indexRight < sizeRight) {
-		if (left[indexLeft] <= right[indexRight]) {
+	while (indexLeft < sizeLeft && indexRight < sizeRight)
+	{
+		if (left[indexLeft] <= right[indexRight])
+		{
 			array[indexArray] = left[indexLeft];
 			indexArray++;
 			indexLeft++;
-		}else {
+		}
+		else
+		{
 			array[indexArray] = right[indexRight];
 			indexArray++;
 			indexRight++;
 		}
 	}
 	/* se o arrary da direita completar primeiro */
-	while (indexLeft < sizeLeft) {
+	while (indexLeft < sizeLeft)
+	{
 		array[indexArray] = left[indexLeft];
 		indexArray++;
 		indexLeft++;
 	}
 	/* se o array da esquerda completar primeiro */
-	while (indexRight < sizeRight) {
+	while (indexRight < sizeRight)
+	{
 		array[indexArray] = right[indexRight];
 		indexArray++;
 		indexRight++;
 	}
+	
 }
 
-void printArray(int array[], int size) {
+void printArrayMerge(int array[], int size)
+{
 	printf("[");
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++)
+	{
 		printf(" %d ", array[i]);
-		if (i != (size - 1)) {
+		if (i != (size - 1))
+		{
 			printf("|");
 		}
 	}

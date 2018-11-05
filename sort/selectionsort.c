@@ -1,6 +1,11 @@
-#include <stdio.h>
+/*
+	ALGORITMO DE ORDENAÇÃO SELECTIONSORT
+*/
 
-void swap(int *a, int *b)
+#include <stdio.h>
+#include <time.h>
+
+void swapSelection(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
@@ -8,7 +13,7 @@ void swap(int *a, int *b)
 }
 
 // Função do print do Array
-void printArray(int array[], int size)
+void printArraySelection(int array[], int size)
 {
     int i;
     for (i = 0; i < size; i++)
@@ -32,27 +37,19 @@ void selectionSort(int array[], int n)
         }
         if (trocou)
         {
-            swap(&array[min], &array[i]);
+            swapSelection(&array[min], &array[i]);
         }
     }
 }
 
-int main()
+void rs(int array[], int tamanho)
 {
-    int tamanho;
-    printf("tamanho do array: ");
-    scanf("%d", &tamanho);
-    int array[tamanho];
+    clock_t begin = clock();
+	double cpu_time_used;
 
-    printf("Digite os elementos do array separados por espaco: ");
-    for (int i = 0; i < tamanho; i++)
-    {
-        scanf("%d", &array[i]);
-    }
-    printf("\nArray desordenado:\n ");
-    printArray(array, tamanho);
     selectionSort(array, tamanho);
-    printf("\nArray ordenado:\n ");
-    printArray(array, tamanho);
-    return 0;
+    clock_t end = clock();
+	double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
+    printf("Tempo de execução em segundos: %lf\n", time_spent);
+
 }

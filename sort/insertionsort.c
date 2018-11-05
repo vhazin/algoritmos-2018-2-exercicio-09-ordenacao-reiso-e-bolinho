@@ -1,6 +1,11 @@
-#include <stdio.h>
+/*
+	ALGORITMO DE ORDENAÇÃO INSERTIONSORT
+*/
 
-void printArray(int array[], int size)
+#include <stdio.h>
+#include <time.h>
+
+void printArrayInsertion(int array[], int size)
 {
     printf("\n");
     for (int i = 0; i < size; i++)
@@ -15,7 +20,7 @@ void insertionSort(int array[], int n)
     // Navega pelo Array
     for (int k = 1; k <= n - 1; k++)
     {
-        printf("\n");
+    
         numAtual = array[k];
         j = k - 1;
 
@@ -27,30 +32,18 @@ void insertionSort(int array[], int n)
             array[j + 1] = array[j];
             j--;
         }
-
-        printf("Troca: %d", vezes);
         array[j + 1] = numAtual;
-        vezes = 0;
+
     }
-    printf("\n");
 }
 
-int main()
+void ri(int array[], int tamanho)
 {
-    int tamanho;
-    printf("tamanho do array: ");
-    scanf("%d", &tamanho);
-    int array[tamanho];
+    clock_t begin = clock();
+	double cpu_time_used;
 
-    printf("Digite os elementos do array separados por espaco: ");
-    for (int i = 0; i < tamanho; i++)
-    {
-        scanf("%d", &array[i]);
-    }
-    printf("\nArray desordenado:\n ");
-    printArray(array, tamanho);
     insertionSort(array, tamanho);
-    printf("\nArray ordenado:\n ");
-    printArray(array, tamanho);
-    return 0;
+    clock_t end = clock();
+	double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
+    printf("Tempo de execução em segundos: %lf\n", time_spent);
 }

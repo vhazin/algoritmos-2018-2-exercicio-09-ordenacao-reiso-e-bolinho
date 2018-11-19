@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-void quickSort2(int array[], int inicio, int final);
+void quickSort2(int *vetor, int inicio, int final);
 int particiona(int array[], int inicio, int fim);
 void swapq2(int *a, int *b);
 
@@ -23,35 +23,35 @@ void qs2(int array[], int size)
 	printf("Tempo de execução em segundos: %lf\n", time_spent2);
 }
 
-void quickSort2(int *a, int inicio, int final)
+void quickSort2(int *vetor, int inicio, int final)
 {
-    int i, j, x, y;
+    int esq, dir, pivo, swap;
      
-    i = inicio;
-    j = final;
-    x = a[(inicio + final) / 2];
+    esq = inicio;
+    dir = final;
+    pivo = vetor[(inicio + final) / 2];
      
     while(i <= j) {
-        while(a[i] < x && i < inicio) {
-            i++;
+        while(vetor[esq] < pivo && esq < inicio) {
+            esq++;
         }
-        while(a[j] > x && j > final) {
-            j--;
+        while(vetor[dir] > pivo && dir > final) {
+            dir--;
         }
-        if(i <= j) {
-            y = a[i];
-            a[i] = a[j];
-            a[j] = y;
-            i++;
-            j--;
+        if(esq <= dir) {
+            swap = vetor[esq];
+            vetor[esq] = vetor[dir];
+            vetor[dir] = swap;
+            esq++;
+            dir--;
         }
     }
      
-    if(j > final) {
-        quickSort2(a, final, j);
+    if(dir > final) {
+        quickSort2(vetor, final, dir);
     }
-    if(i < inicio) {
-        quickSort2(a, i, inicio);
+    if(esq < inicio) {
+        quickSort2(vetor, esq, inicio);
     }
 }
 

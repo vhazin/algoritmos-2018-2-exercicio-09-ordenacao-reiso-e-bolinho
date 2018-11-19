@@ -3,6 +3,8 @@
 #include "sort/insertionsort.c"
 #include "sort/mergesort.c"
 #include "sort/selectionsort.c"
+#include "sort/quicksort.c"
+#include "sort/quicksort2.c"
 
 int main(){
     int tamanho;
@@ -16,13 +18,17 @@ int main(){
         scanf("%d", &array[i]);
     }
     printf("bubble:\n");
-    rb(array, tamanho);
+    bs(array, tamanho);
     printf("\nheap:\n");
-    rh(array, tamanho);
+    hs(array, tamanho);
     printf("\ninsertion:\n");
-    ri(array, tamanho);
+    is(array, tamanho);
     printf("\nMerge:\n");
-    rm(array, tamanho);
+    ms(array, tamanho);
     printf("\nSelection:\n");
-    rs(array, tamanho);
+    ss(array, tamanho);
+    printf("QuickSort inicio");
+    qs2(array, tamanho);
+    printf("QuickSort final");
+    qs(array, tamanho);
 }

@@ -36,14 +36,14 @@ void insertionSort(int array[], int n)
 
     }
 }
-
-void ri(int array[], int tamanho)
+void is(int array[], int tamanho)
 {
+    int tamanho2;
     clock_t begin = clock();
-	double cpu_time_used;
+    double cpu_time_used;
 
     insertionSort(array, tamanho);
     clock_t end = clock();
-	double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
     printf("Tempo de execução em segundos: %lf\n", time_spent);
 }

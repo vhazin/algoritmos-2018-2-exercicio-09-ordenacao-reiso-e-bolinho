@@ -10,7 +10,7 @@ void mergeSort(int array[], int length);
 void merge(int left[], int right[], int array[], int sizeLeft, int sizeRight, int sizeArray);
 void printArrayMerge(int array[], int size);
 
-void rm(int array[], int size)
+void ms(int array[], int size)
 {
 	clock_t begin = clock();
 	double cpu_time_used;

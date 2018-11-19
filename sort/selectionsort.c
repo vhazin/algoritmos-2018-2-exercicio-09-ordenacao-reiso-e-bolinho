@@ -42,7 +42,7 @@ void selectionSort(int array[], int n)
     }
 }
 
-void rs(int array[], int tamanho)
+void ss(int array[], int tamanho)
 {
     clock_t begin = clock();
 	double cpu_time_used;

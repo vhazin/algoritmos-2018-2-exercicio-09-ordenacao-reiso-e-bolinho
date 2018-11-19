@@ -9,7 +9,7 @@ void maxHeapify(int array[], int i, int sizeHeap);
 void heapSort(int array[], int size);
 void printArrayHeap(int array[], int size);
 
-void rh(int array[], int size)
+void hs(int array[], int size)
 {
 	clock_t begin = clock();
 	double cpu_time_used;

@@ -38,11 +38,17 @@ void insertionSort(int array[], int n)
 }
 void is(int array[], int tamanho)
 {
+    int newArray[tamanho];
+
+    for (int i = 0; i < tamanho; i++)
+    {
+        newArray[i] = array[i];
+    }
     int tamanho2;
     clock_t begin = clock();
     double cpu_time_used;
 
-    insertionSort(array, tamanho);
+    insertionSort(newArray, tamanho);
     clock_t end = clock();
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
     printf("Tempo de execução em segundos: %lf\n", time_spent);

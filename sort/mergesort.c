@@ -12,17 +12,16 @@ void printArrayMerge(int array[], int size);
 
 void ms(int array[], int size)
 {
+	int newArray[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        newArray[i] = array[i];
+    }
 	clock_t begin = clock();
 	double cpu_time_used;
 
-	int count;
-	
-	if (size < 2)
-	{
-		printf("Array ja esta ordenado\n");
-	}
-
-	mergeSort(array, size);
+	mergeSort(newArray, size);
 	/* printa o array */
 	clock_t end = clock();
 	double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;

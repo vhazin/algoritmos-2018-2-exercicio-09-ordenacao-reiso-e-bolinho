@@ -40,10 +40,17 @@ void bubbleSort(int array[], int n)
 
 void bs(int array[], int tamanho)
 {
+    int newArray[tamanho];
+
+    for (int i = 0; i < tamanho; i++)
+    {
+        newArray[i] = array[i];
+    }
+
     clock_t begin = clock();
     double cpu_time_used;
 
-    bubbleSort(array, tamanho);
+    bubbleSort(newArray, tamanho);
     clock_t end = clock();
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
     printf("Tempo de execução em segundos: %lf\n", time_spent);

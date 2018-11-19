@@ -17,18 +17,19 @@ int main(){
     {
         scanf("%d", &array[i]);
     }
+    
     printf("bubble:\n");
     bs(array, tamanho);
-    printf("\nheap:\n");
-    hs(array, tamanho);
+    printf("\nSelection:\n");
+    ss(array, tamanho);
     printf("\ninsertion:\n");
     is(array, tamanho);
     printf("\nMerge:\n");
     ms(array, tamanho);
-    printf("\nSelection:\n");
-    ss(array, tamanho);
-    printf("QuickSort inicio");
-    qs2(array, tamanho);
-    printf("QuickSort final");
+    printf("\nheap:\n");
+    hs(array, tamanho);    
+    printf("\nQuickSort final:\n");
     qs(array, tamanho);
+    printf("\nQuickSort inicio:\n");
+    qs2(array, tamanho);
 }

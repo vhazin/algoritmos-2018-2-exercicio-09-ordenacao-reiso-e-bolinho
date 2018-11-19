@@ -5,12 +5,18 @@ void quickSort2(int array[], int inicio, int final);
 int particiona(int array[], int inicio, int fim);
 void swapq2(int *a, int *b);
 
-void qs2(int myarray[], int sizeArray)
+void qs2(int array[], int size)
 {
+    int newArray[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        newArray[i] = array[i];
+    }
     clock_t begin = clock();
 	double cpu_time_used;
 
-	quickSort2(myarray, 1, sizeArray - 1);
+	quickSort2(newArray, 1, size - 1);
 
 	clock_t end = clock();
 	double time_spent2 = (double)(end - begin) / CLOCKS_PER_SEC;

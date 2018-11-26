@@ -12,23 +12,15 @@ void swapBuble(int *a, int *b)
     *b = temp;
 }
 
-// Função do print do Array
-void printArray(int array[], int size)
-{
-    int i;
-    for (i = 0; i < size; i++)
-        printf("%d ", array[i]);
-    printf("\n");
-}
-
-// A funçãoo que implementa o bubble sort
 void bubbleSort(int array[], int n)
 {
     int i, j;
-    // Navegando pelo array e conferindo qual é maior
+    
+    // Aplicando o bubble sort
     for (i = 0; i < n - 1; i++)
     {
-        for (j = 0; j < n - i - 1; j++)
+        // Navegando pelo array e conferindo qual é maior
+        for (j = 0; j < n; j++)
         {
             if (array[j] > array[j + 1])
             {

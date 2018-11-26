@@ -1,3 +1,7 @@
+/*
+	ALGORITMO DE ORDENAÇÃO QUICKSORT COM PIVO NO INICIO
+*/
+
 #include <stdio.h>
 #include <time.h>
 
@@ -22,8 +26,6 @@ void qs2(int array[], int size)
     clock_t end = clock();
     double time_spent2 = (double)(end - begin) / CLOCKS_PER_SEC;
     printf("Tempo de execução em segundos: %lf\n", time_spent2);
-
-    printArrayQuick(newArray, size);
 }
 
 void quickSort2(int vetor[], int inicio, int final)

@@ -1,3 +1,7 @@
+/*
+	ALGORITMO DE ORDENAÇÃO MERGESORT
+*/
+
 #include <stdio.h>
 #include <time.h>
 
